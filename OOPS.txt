@@ -1,0 +1,23 @@
+-> Abstraction : Only concept, to hide internal implementation from outer world.
+	Eg:  Adding two number - internal implementation hiding from internal world.
+	Eg:  converting Simple language program to machine language program.
+
+	"Abstraction can be achieve from Encapsulation and Inheritance."
+
+
+-> Encapsulation : technique to implement abstraction.
+		Eg: To access the restriction to class members and methods.
+	It restrict access w.t.h of " Access Modifier". i.e. private,protected,public.
+
+
+
+-> Access Modifier : 
+	
+	Note) We can have only one “public” class in a source file and file name should be same as the public class name.
+
+
+
+
+
+
+ 

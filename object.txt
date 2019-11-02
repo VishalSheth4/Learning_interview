@@ -1,0 +1,18 @@
+A software object maintains its state in variables and implements its behavior with methods.
+
+Packaging an object's variables within the protective custody of its methods is called encapsulation. 
+
+URL: Link 
+https://en.wikibooks.org/wiki/Java_Programming/API/java.lang.Object
+
+Object class contain 9 default methods.
+
+1) boolean equals(Object o);
+2) Class getClass();
+3) int hashCode();
+4) void notify();
+5) void notigyAll();
+6) Stirng to String();
+7) void wat();
+8)protected object clone() throws clonenNotSupportedException.
+9) protected void finalize() throws Throwable;

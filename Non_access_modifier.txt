@@ -1,0 +1,126 @@
+Static : Memory management so that we can make our memory efficient or save memory.
+
+Static USE : variables, 
+		Methods, 
+		Nested class 
+		Define static block.
+
+NOTE : The static keyword belongs to the class rather than instance of the class.
+
+Static Variable : Static variable is a class level variable. 
+	A Static variable gets memory allocated only once during the time of class loading.
+	When we want to refer common property to all the objects then we use static 	variable e.g student name and roll no may be different but student's school name will be same for all the students.
+	A static method can access static varaibles directly and it cannot access non-static variables.
+	A static method can only call a static method directly and it cannot call a non-static method from it.
+	"super and this" keyword cannot be used in a static method.
+
+Q) "Local variables" cannot be assigned as static it will throw compile time error “illegal start of expression”, as the memory cannot be assigned during class load.
+--------------------------------------------------------------------------------
+static method : A static method belongs to the class rather than an object. 
+	It can be called directly by using the class name “<<ClassName>>.<<MethodName>>”
+	A static method can access static variables directly and it cannot access non-static variables and can only call a static method 	directly and it cannot 	call a non-static method from it.
+	Only the main() method which is static will be called by the JVM automatically, Not all the static method will be called automatically.
+
+--------------------------------------------------------------------------------
+Q) Can a static block exist without a main() method?
+	No. You cannot have a static block alone in the class without a main method.
+	What about total main method absence? If you try to run an ordinary class without the main method at all, you got the next error: Main 	method not found in class Test, please define the main method as: public static void main (String [] args) or a JavaFX application class 	must extend javafx.application.Application. The error itself says that if this is a JavaFX application and the class is inherited from 	javafx.application.Application, then it is possible. 
+--------------------------------------------------------------------------------
+Q) Static method overloading : Can we Overload static methods in Java ?
+	Yes, you can overload a static method in Java.
+	We cannot overload two methods which differs in static keyword but has the same method signature. When we try to do so we will be 	getting ” Cannot make a static reference to the non-static method “ error.
+--------------------------------------------------------------------------------
+Q) Can you override private or static method in Java?
+
+ 	You really can’t override private or static method in Java.
+
+	You can’t override the private methods because the scope of the private access specifier is only within the class. When you are going to override something, we should have parent and child class. If method of superclass is private, child class can’t use it, and the methods in child class will be treated as new methods (not overridden).
+
+	Static methods also cannot be overridden, because static methods are the part of the Class itself, and not a part of any object of the class. Sure you can declare same static method with same signature in child classes, but again, they will be treated as new methods.	
+--------------------------------------------------------------------------------
+Static Block :
+
+	Static block is executed before main method. If we declare a Static block in java class it is executed when class loads. 
+	Mostly the static block will be used for initializing the variables.
+    The static block will be called only one while loading and it cannot have any return type, or any keywords (this or super).
+    Yes, we can have more than one static block in our code. It will be executed in the same order it is written.
+
+--------------------------------------------------------------------------------
+	Non-static variable x cannot be referenced from a static context.
+
+	Only static variable and method can be accessed from static context.
+	We can access the instance variable inside the static method after creating the class reference (Object).
+
+--------------------------------------------------------------------------------
+Q) Can we Override static methods in Java
+	No, you cannot override a static method in Java as there will not be any Run-time Polymorphism happening.
+
+--------------------------------------------------------------------------------
+Q) Why main() method is declared as static?
+
+	If our main() method is not declared as static then the JVM has to create an object first and call which causes the problem of having extra memory allocation.
+	Can we execute java program without main() method?
+	In java 8 version, it is not possible but it was possible in previous versions like 7, 6, etc.
+
+
+--------------------------------------------------------------------------------
+
+Nested Class : 
+	In Java only nested classes are allowed to be declared as static, if we declare a top level class as static then it will throw error. Even though static classes are nested inside a class, they doesn’t need the reference of the outer class they act like outer class only whereas on the other hand non-static nested class need reference of the outer class.
+
+Q) When nested static class is required?
+	when we want a single resource to be shared between all instances and normally we do this for utility classes which are required by all components and which itself doesn't have any state.
+
+--------------------------------------------------------------------------------
+Constructors :
+Can constructors be static in Java? 
+No.
+
+--------------------------------------------------------------------------------
+Abstract Class:
+	Static method can be possible, but static and abstract cannot be possbile bcoz it cannot override.
+	Yes, an abstract class can have static variables in it.
+
+-------------------------------------------------------------------------------
+Interface :
+Can Interface in Java have static methods in it ?
+No.
+After JAVA 8 it is possible.
+
+-------------------------------------------------------------------------------
+Note : Static methods belong to the class, non-static methods belong to instances of the class and hence it throws the error ” 		   Non-static method cannot be referenced from a static context “.
+NOTE : Yes, we can change the order of modifiers in the main method.
+NOTE : Static keyword cannot be applied on top-level class while will result in compile time error.
+-------------------------------------------------------------------------------
+Q) Can we call super class static method in sub class?
+	Yes, we can call super class static method in sub class but it can't override in sub class.
+Q) Can we use this and super in static context?
+	No, because this and super belongs to objects.	
+-------------------------------------------------------------------------------
+Q) Are static local variables allowed in Java?
+	No. Unlike C/C++, static local variables are NOT allowed in Java.
+
+-------------------------------------------------------------------------------
+Advantage : Static variables help writing memory efficient programs at only one copy of the variable being shared across all the 			 class instances.
+-------------------------------------------------------------------------------
+Q)  Can a static nested class access instance members of enclosing class?
+
+	No. Unlike static class methods, a static nested class cannot refer directly to instance variables or methods defined in its enclosing class; it can use them only through an object reference.
+-------------------------------------------------------------------------------
+Q) Difference between static nested class and inner class.
+
+	Static nested class can define its own static member while the inner class cannot declare static members.
+
+	An instance of InnerClass can exist only within an instance of OuterClass and has direct access to the methods and fields of its enclosing instance. in Static nested class, it can exist even without an instance of enclosing class.	
+
+-------------------------------------------------------------------------------
+Explain illegal forward reference error in static block.
+
+Forward reference error is a Java compile time error that occurs when a variable is referenced before it is declared.
+------------------------------------------------------------------------------
+Q)  How can we create objects if we make the constructor private ?	
+		We can do so through a static public member method or static block.	
+
+----------------------+---------------------+---------------------+-------------
+Asked Questions : https://javainterviewpoint.com/use-of-static-keyword-in-java/
+Q1 ) Should static block can execute without main.
