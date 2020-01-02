@@ -1,0 +1,86 @@
+Rest 
+
+
+
+Rest request contain two thing :
+Method and URI
+
+
+Method :
+
+GET : to get the data from the resource.
+POST : create a new resource and add it to a collection.
+PUT : update an existing singleton reosurce based on ID. (It replaced data)
+PATCH : Modify an existing singleton reousrce based on ID. (It will modify the data without uncessary replace the data like put.)
+DELETE : Delete singleton reosurce based on ID.(Can not delete collection resource).
+ 
+OPTIONS : Description of the target resource (Get the options available from this resource)
+HEAD : Get just the reponse of headers from the resource.
+----------------------------------------------------------
+GET: 
+Success : 200 Ok
+Failure : 404 Not Found
+
+POST:
+Success : 201 Created
+Failure : 401 Unauthorized
+		: 409 Conflict
+		: 404 Not Found
+
+PUT, PATCH:
+Success : 200 OK
+Failure : 401 Unauthorized
+		: 404 Not Found
+		: 405 Method not Allowed
+
+DELETE :
+Success : 200 OK
+Failure : 401 Unauthorized
+		: 404 Not Found		
+
+OPTIONS : 
+Success : 200 OK
+
+HEAD :
+Success : 200 OK
+Failure : 404 Not Found
+----------------------------------------------------------
+Resource and Representation:
+
+1) Resource : a document or image, temporal resource : Coneptual mapping : 
+	
+	The data contained at the end of the resource URI
+
+2) Representation: the state to fit different apps.
+	Representation of the data obtained on access.
+
+----------------------------------------------------------
+Method(Verbs)
+
+
+----------------------------------------------------------
+Response Header : details of meta-data.
+Http Status message : to identify success and failure.
+
+
+1xx : Information (status of the server: copen conncetion,wait)
+2xx : Success (200 Ok, 201 Created, 202 No Content)
+3xx : Redirection (New url need to follow)
+	301 : Moved Permanently
+	302/303 : Found at this other URL
+	307 : Temporary redirect
+	308 : Resume incomplete
+4xx : client Error
+	400 : Bad Request
+	401 : Unauthorized
+	403 : Forbidden
+	404 : Not Found
+	405 : Method Not Allowed
+5xx : Server Error
+	500 : Internal Server Error
+	502 : Bad Gateway
+	503 : Service Unavailable
+	
+
+
+

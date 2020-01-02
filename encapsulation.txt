@@ -1,4 +1,7 @@
 The Benefits of Encapsulation
 Encapsulating related variables and methods into a neat software bundle is a simple yet powerful idea that provides two primary benefits to software developers:
-Modularity--The source code for an object can be written and maintained independently of the source code for other objects. Also, an object can be easily passed around in the system. You can give your bicycle to someone else and it will still work.
-Information hiding--An object has a public interface that other objects can use to communicate with it. But the object can maintain private information and methods that can be changed at any time without affecting the other objects that depend on it. You don't need to understand the gear mechanism on your bike in order to use it.
+
+Modularity--The source code for an object can be written and maintained independently of the source code for other objects.
+Also, an object can be easily passed around in the system. You can give your bicycle to someone else and it will still work.
+
+Information hiding-An object has a public interface that other objects can use to communicate with it. But the object can maintain private information and methods that can be changed at any time without affecting the other objects that depend on it. You don't need to understand the gear mechanism on your bike in order to use it.

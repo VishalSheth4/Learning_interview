@@ -1,0 +1,179 @@
+Scope to use : Variable, Method, Nested class and Initialization blocks (static block).
+
+Static variable:
+
+Static is to create a Class level variable in java.
+Static variables and methods are part of the class, not the instances of the class.
+
+1) We can use static keyword with "class level variable". 
+- A static variable is a class variable and doesn’t belong to Object/instance of the class
+
+Note : we cannot use static varaible inside method, main method.(It is class level variable).
+
+2) Static variables are shared across all the instances of Object, they are not "thread safe". 
+- It can be accessed from everywhere , where the instacnes of object.
+
+3) Static final - Common resources or Constants.
+- How to access : ClassName.variableName
+
+Even also in static method, we cannot use keyword static.
+But we can access static variable directly
+ and non static variable with Object.
+========================================================================================================
+Method : 
+Static method belong to class and not to class instances. 
+
+1) A static method can access only static variables of class and invoke only static methods of the class. 
+
+2) Java Wrapper classes and utility classes contains a lot of static methods. 
+
+Main method()
+In Public static void main() - static purpose is to give the entry point to JVM.
+Only the main() method which is static will be called by the JVM automatically, Not all the static method will be called automatically.
+
+"super and this keyword cannot be used in a static method."
+
+
+
+--------------------------------------------------------------------------------------------------------
+Static block
+
+Can’t access non-static variables in the static block.
+The static block is executed before a "valid main method"
+
+The static block will be called only one while loading and it cannot have any return type, or any keywords (this or super).
+
+Yes, we can have more than one static block in our code. It will be executed in the same order it is written.
+--------------------------------------------------------------------------------------------------------
+Java static class:
+
+We can use static keyword with nested classes. static keyword can’t be used with top-level classes. A static nested class is same as any other top-level class and is nested for only packaging convenience. 
+
+Only nested class are allowed to use static keyword. But it acts as outer class only
+Bcoz static class belongs to class not belongs to object of class. So we access the nested class directly : class
+
+--------------------------------------------------------------------------------------------------------
+Memory :
+A Static variable gets memory allocated only once during the time of class loading.
+
+Value: 
+Value of a static variable will be common for all instances
+
+---------------------------------------------------------------------------------------------------------
+Why we can't assign local variable as static.
+
+Local variables cannot be assigned as static it will throw compile time error “illegal start of expression”, as the memory cannot be assigned during class load.
+
+---------------------------------------------------------------------------------------------------------
+Overloading static methods in Java - Yes.
+Overloading consider as compile time polymorphism.
+
+case 1) Static method overloading can be possible if method with same name with different signature.
+case 2) Method overloading is not possible if method with same name and same signature. differ in is one is static and other is non-static.
+Cannot make a static reference to the non-static method
+
+---------------------------------------------------------------------------------------------------------
+Override static methods in Java - NO.
+Method Overriding as there will not be any "Run-time Polymorphism happening".
+
+Parent{
+	static display(){
+	Sout("parent");
+	}
+}
+child extends Parent{
+	static display(){
+	Sout("child");
+	}
+	PSVM(){
+		Parent p = new Parent();
+		p.display(); // It will call parent method display;
+
+		display();  // It will call child method display. 
+	}
+}
+
+The above method cause method hiding.
+
+This will call the Parent method and not the Child method, this because static methods are bonded using static binding at compile time.
+
+---------------------------------------------------------------------------------------------------------
+
+Ques) Why main() method is declared as static?
+
+If our main() method is not declared as static then the JVM has to create an object first and call which causes the problem of having extra memory allocation.
+
+---------------------------------------------------------------------------------------------------------
+User.java
+-----------
+public class User {
+	static class VipUsers
+    {
+        public void displayVipUsers()
+        {
+            System.out.println("Welcome Vip User");
+        }
+    }
+    class NormalUsers
+    {
+        public void displayNormalUsers()
+        {
+            System.out.println("Welcome Normal User");
+        }
+    }
+}
+
+-------------------------------------------------------
+test_1.java
+-------------
+public class test_1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		User.VipUsers vip = new User.VipUsers();  // ......(1)
+        vip.displayVipUsers();
+        
+//        User.NormalUsers normal = new User.NormalUsers(); //
+// It will throw error. Bcoz non-static class can be access from instantiate of (object) outer class. 
+        
+        User users = new User(); // ...............(2)
+        User.NormalUsers normal = users.new NormalUsers();
+        normal.displayNormalUsers();
+	}
+}
+
+-----------------------------------------------------
+User.VipUsers vip = new User.VipUsers();  // ......(1)
+Bcoz of static class we can directly access VipUsers class with the help of <<OuterClass_name>>.<<InnerClass_name>>
+
+-----------------------------------------------------
+ User users = new User(); // ...............(2)
+ User.NormalUsers normal = users.new NormalUsers();
+
+As NormalUsers is non-static class. We have to create object of outer class to access inner class.
+
+-----------------------------------------------------
+Can constructors be static in Java? - Yes,but no advantage.
+
+In general, a static method means that 
+“The Method belongs to the class and not to any particular object” but a constructor is always invoked with respect to an object, so it makes no sense for a constructor to be static.
+
+------------------------------------------------------
+Abstract class:
+
+In abstract class, method cannot be static bcoz it directly access.
+Abstract class called incomplete class. So it can possible to call undefined class.
+
+Yes, an abstract class can have static variables in it.
+------------------------------------------------------
+Interface in Java have static methods in it ?
+
+No, Interface cannot have static methods in it because all methods are implicitly abstract. This is why an interface cannot have a static method.
+
+
+
+--------------------------------------------------------
+
+Static method - Class level access directly called.
+Non static method - Object level access , It called with the help of an object.

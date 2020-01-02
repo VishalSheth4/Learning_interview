@@ -1,0 +1,128 @@
+1.6 version Enhancement
+Navigable Set(I)
+Navigable Map(I)
+
+------------------------------------------------
+SortedSet(I)
+First()
+Last()
+HeadSet()
+TailSet()
+SubSet
+
+Navigable Set(I)
+// before 10:00 which is last flight.
+// Navigation support before and after.
+
+
+Methods:
+
+floor(e);  //<= e return highest element which is less than or equal to e.
+lower(e):  //> e Strictly before e element.
+ceiling(e): // >=e
+highest(e): // <e
+
+pollfirst()
+pollLast()
+descendingSet()
+------------------------------------------------------------------------------------------------------------------------------------------
+
+NavigableMap(I) extends SortedMap(I)
+
+Methods : 
+floorKey(e)
+lowerKey(e)
+ceilingKey(e)
+higherKey(e)
+pollFirstEntry()
+pollLastEntry()
+descendingMap()
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+Collections - Utility class
+Synchronized map
+searching
+sorting - (by default there in set ,priorityqueue)  - So collections class give sorting 
+
+
+Collections class defined several utility method for collection objects. i.e. sorting ,searching, reversing etc.
+
+1) Sorting 
+	-	Public Static void sort(l); // Natural sorting order, Homogenous and comparable.
+	-	List should contain null
+
+	-	public Static void sort(List l, Comparator c);	
+
+
+2) Searching (List)
+	Internally binarysearch algorithm.
+
+	-	public static int binarySearch(List l, Object target_find);
+	-	
+	-	Successful search returns - index.
+	-	Unsuccesful search returns - insertion oint.(-1,-2,-3,-4,-5)
+
+	-   public static int binarySearch(List l, Object target_find,Comparator c);
+
+
+---------------------------------------------------
+---------------------------------------------------
+
+Collections : Several utility method for array class.
+
+Arrays : 
+
+1) Sorting element of array.
+
+	-	public static void sort(primitive [] p); //D.N.S.O.
+	-	public static Void sort(Object[] o ); // D.N.S.O
+	-	public static void sort(Object o ,Comparator c);
+			// to sort according to customzied sorting order.
+
+
+
+2) Searching element of array.
+
+	-	public static void binarySearch(primitive [] p); 
+	-	public static Void binarySearch(Object[] o ); 
+	-	public static void binarySearch(Object o ,Comparator c);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

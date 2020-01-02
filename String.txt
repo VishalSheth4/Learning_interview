@@ -1,0 +1,365 @@
+String , String Builder and String Buffer.
+---------------------------------------------------
+1)  Most common useful object is string object.
+
+2)	String objects are immutable (Non changeable behavior)
+	StringBuffer objects are mutuable. (Changeable behavior)
+
+i.e. 
+
+3)	String -----//
+
+1	String s = new String("Happy");
+2	s.concat("Birthday");
+3	System.out.println(s)
+
+	Answer: 
+	Line 1) String Object will create with value "Happy". 
+	Line 2) New object will create with concatenate method it will create new object with value "Happy Birthday".
+	Line 3) New object is not assigned to any value 
+	i.e. String v=s.concat("Birthday");
+
+	It is still point to new object ("Happy").
+
+	OUTPUT : Happy.
+
+	String Buffer ------//
+	Stringbuffer sb = new StringBuffer("Happy");
+	sb.append("Birthday");
+	system.out.println(sb);
+
+	OUTPUT : Happy Birthday.
+
+---------------------------------------------------
+  ==,equals
+
+Note:
+->  == is for reference comparator/ address comparison.
+
+->  Object.equals() is for reference comparator/ address comaprison.
+
+->  In child classes - in string class is overridden equals() method 	 .equals() is for content comparison.
+->  In StringBuffer equals() method is not overridden so it is for 		 reference comparator.
+
+String -------//
+String s1 = new String("happy");
+String s2 = new String("happy");
+
+System.out.println(s1==s2);		// give output false
+System.out.println(s1.equals(s2));  // OUTPUT : true
+
+
+
+stringBuffer -------//
+
+StringBuufer sb1 = new StringBuufer("happy");
+StringBuufer sb2 = new StringBuufer("happy");
+
+System.out.println(sb1==sb2);	// give output false
+System.out.println(sb1.equals(sb2)); OUTPUT : false
+
+
+--------------------------------------------------------------------
+String s = new String("happy");
+
+	1) It will create two objects
+
+	One is in heap memory and other in SCP (String Constant Pool).
+	s is pointing to object which is in heap memory.
+	SCP is not an auto garbage collector bcoz internal refernce maintianed by JVM.
+
+
+String r = "happy";
+
+	1) It will create one object in SCP (String Constant Pool).
+	r is pointing to object which is in SCP 
+
+	In SCP 
+		It will check first is the same literal is already present or not.
+		If (present) {
+			thne it will reuse that only.
+		}
+		else{
+			it will create new one.
+		}
+
+------------------------------------------------------------------
+Question :
+
+1)	string s1 = new String("happy");
+2)	string s2 = new String("happy");
+
+3)	string s3 = "happy";
+4)	string s4 = "happy";
+
+
+How many objects are made in heap and SCP.
+
+
+Line 1)  when any new keyword is used .Compulsory new object will create in heap. other in SCP area.
+
+Line 2) New Keyword in used s2 will create in heap.
+	In SCP already there not require to create new object of same literal.
+
+Line 3)	s3 will point to SCP , no new object will create.
+
+Line 4)	s4 will point to SCP , no new object will create.
+
+OUTPUT: Heap contain 2 object , 1 in SCP area.
+
+-------------------------------------------------------------------
+
+Question :
+
+1)	String s = new String("Durga");
+2)	s.concat("Software");
+3)	s=s.concat("Solutions");
+
+
+Line 1) Heap contain 1 ,SCP contain 1.
+Line 2) For every string literal(Every copy will br created in SCP area).
+SCP will not store any runtime manipulation done on literal.
+SCP is not eligible for Garbage collection.
+Line 3)
+
+
+OUTPUT : 
+
+HEAP : 
+	Durga - elgible for garbage collection
+	Durga Software - elgible for garbage collection
+	s -> Durga Solution.
+
+SCP :
+	Durga
+	Software
+	Solution	
+-------------------------------------------------------------------
+Ques) Why String are immutable and StringBuffer is mutuable.
+(Votes REgistration Form)
+Why SCP is important ?
+
+SCP -> Repeatable use of objects.
+	-> Immutable (not change behavior) - Cons.
+
+In stringBuffer everytime new object is created. 
+-------------------------------------------------------------------
+Ques) SCP is only for String not for stringBuffer ?
+
+Special privilege give to regular customer (String Object).
+
+Most common use object is String that why SCP is given.
+
+-------------------------------------------------------------------
+
+ Note : All wrapper class object are immutable along with string Object.
+
+ ------------------------------------------------------------------
+
+Important Constructor of String Class.
+
+1)  Empty String by using constructor: String s = new String();
+
+2)  String s = new String(String Literal);
+
+3)  For the given stringBuffer want to create string object.
+	String s = new String(StringBuffer sb);
+	Stirng s = new string (StringBuilder sb);
+
+4) 	String is a sequence of character.
+	String s = new String(char[] c);
+
+5)  Byte
+	byte[] b = {97,98,99,100};
+	String s = new String(byte[] b);	
+	System.out.println(s);
+
+		Output : abcd
+
+-------------------------------------------------------------------
+
+Important method in String:
+
+	public boolean isEmpty();
+
+	public int length();
+
+Note : int[] x = {10,20,30,40};
+		System.out.println(x.length);   // varaible length
+
+Note : String s = "durga";
+		System.out.println(s.length());	 // method length
+
+	public String replace(char old, char new);
+
+	public String substring(int begin);
+			// from begin index to end of the string.
+
+	public String substring(int begin, int end-1);
+			// index will consider from 0.
+
+
+-------------------------------------------------------------------
+
+10) indexof(char c) - It returns the position of char. - If not present it return (-1)
+
+11) lastindexof(char c) - It returns the last position of char.
+
+12) public string toLowerCase()
+
+13) public string toUpperCase()
+
+14) equalsIgnorecase()
+
+15) trim() - It will remove space begin and end of the string.
+
+------------------------------------------------------------------
+
+Conclusion of String :
+
+Immutable : 
+If any no change is string object - it will not create new object..
+
+If any change is string object - It will create new object.
+
+i.e.
+
+String s1 = "happy"; 
+String s2 = s1.toUpperCase();
+String s3 = s1.toLowerCase();
+
+
+System.out.println("s1==s2");   - False
+System.out.println("s1==s3");   - True
+
+
+---------------------------------------
+How to create immutable class ?
+Yes it possible .
+
+i.e. 
+final public void Test(){
+	private int i;
+	public Test(int i){
+		this.i=i;
+	}
+	public test modify(int i){
+	if (this.i==i)
+		return i;
+	}else{
+	return new Test(i);
+	}
+}
+
+---------------------------------------
+Immutable v/s Final
+
+immutable is related to Object.
+final is related to reference variable.
+
+
+i.e. 
+
+final stringBuffer sb = new stringBuffer("Durga"); // It will not make immutable.
+sb.append("Software");
+system.out.println(sb)
+
+
+Note : final means you can reassign the variable to any other variable/Object
+
+i.e. 
+which of the following are meaningful ?
+1) final variable - their
+2) final object - No such terminology present.
+3) Immutable variable - No such terminology present.
+4) Immuable object - their
+
+--------------------------------------------------------------
+String-Buffer
+--------------------------------------------------------------
+
+If the content is not changed - used String.
+If the content is not fixed keep on changing - StringBuffer. - All changing are applicable to existing object.
+
+
+-> Constructor of StringBuffer
+1) StringBuffer sb = new StringBuffer("Durga");
+Length = 5
+Capacity = 10*;
+
+2) StringBuffer sb = new StringBuffer(); - Empty String
+	Default capacity = 16 char.
+
+	When any new charachter is added after 16.
+	Next capacity = (CurrentCapacity + 1) * 2
+	17*2 =34
+	34*2 =70
+
+3)  StringBuffer sb = new StringBuffer(int initialCapacity);
+
+Note: 
+4) String to StringBuffer.
+StringBuffer sb= new StringBuffer(String s);
+
+	StringBuffer sb = new StringBuffer("Durga"); 
+	Capacity = 21;
+
+	Answer - [ capacity = s.length() + 16 ]
+		   - [16+5] = 21
+
+
+Method : 
+
+public int length();
+public int capacity();
+public char chatAt(int index);
+public void setCharAt(int index, char newchar);
+
+-> public StringBuffer.append(string s); -      					
+   byte,boolean,char,int,long,float, multiple append are available.
+
+
+-> public StringBuffer insert(int index, string s); -
+   byte,boolean,char,int,long,float, multiple append are available.
+
+-> public StringBuffer delete(int begin, int end);
+   (begin to end-1)
+
+-> public StringBuffer deleteCharAt(int index);
+
+-> public StringBuffer reverse(); - Only available in Stirngbuffer.
+	Order of character
+
+-> public void setLength(int length);
+	StringBuffer sb = new StringBuffer(AishwaryaAbhi)
+	sb.setLength(8);
+	// It will remove 8 character.
+	
+-> public void ensureCapacity(int capacity);
+	// dynamic increase the capacity.
+
+-> To de-allocate the memory 
+	public void trimToSize();
+
+----------------------------------------------------
+String Builder
+
+------------------------
+diiference ->
+
+Every method in string buffer is synchronized.
+In string-builder every method is non-synchronized.
+
+Note :
+
+1) Buffer is changed with Builder
+2) Remove Synchronized word from all methods.
+
+-------------------------------------------------------
+String - Is fixed, Thread-Safe.
+Stringbuffer - Content not fixed, But in synchronized manner.
+StirngBuild - Content not fixed, But in Non-synchronized manner.
+
+
+
+

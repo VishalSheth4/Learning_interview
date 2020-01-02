@@ -1,0 +1,205 @@
+ SET 
+
+Group of individual object.
+Duplication are not allowed.
+Insertion order not preserved.
+
+Set interface not have any new methods. It can use collection(I) methods.
+
+-------------------------------------
+
+HashSet
+
+Underlined datastructure - HashTable
+
+Duplicate are not allowed
+Insertion order is not preserved.
+
+All objects are inserted based on hashcode.
+Null insertion allowed Only once.
+Heterogenous objects are allowed.
+It implements Serializable
+It implements Cloneable.
+It not implements RandomAccess.
+
+Frequent operation - Search operation (Hashing.)
+
+hashSet : - Duplicate are not allowed . It will not throw error. It just simply give false.
+
+Constructor: 
+	HashSet h = new HashSet();
+		// default initial capacity = 16
+		// default fill ratio : 0.75 - Load Factor. - After Filling this much ratio, a new hashset object is created.
+
+	HashSet h = new HashSet(int initialCapacity);
+
+	HashSet h = new HashSet(int initialCapacity, Float fillRatio);
+
+	HashSet h = new HashSet(Collection c);
+
+----------------------------------------------
+LinkedHashSet(C) Extends HashSet(C)
+
+Differnce Between is - duplicate are not allowed.
+					 - Insertion order is preserved.
+
+Underlined data structure - LinkedList + Hashtable.
+
+Application : To develop Cache Memory 
+
+------------------------------------------------------------------------------------
+SortedSet(I) Extends Set(I)
+
+- Group of individual object according to some sorting order without duplicated
+
+*Sorted Ordered preserved.
+
+first()
+last()
+headSet(4) --> 0,1,2,3,
+tailSet(4) --> 4,5,6,7
+subSet(1,5) --> 1,2,3,4,5
+comparator() - It gives comparator object.
+
+
+Default Sorting order - Numbers - Ascending Order
+					  - String - Alphabetical Order.
+
+
+---------------------------------------------------------------------------------------
+TreeSet 
+
+Underlined datastrucutre - Balanced Tree.
+Duplicate not allowed
+Insertion not preserved.
+Heterogenous are not allwoed
+Null possible only once.
+  
+
+  Constructor:
+  	TreeSet t = new TreeSet();
+  	// Inserted into default natural sorting order.
+
+
+  	TreeSet t = new TreeSet(Comparator c);
+  	// Inserted into customized natural sorting order.
+
+
+  	TreeSet t = new TreeSet(Collection c);
+  	TreeSet t = new TreeSet(SortedSet s);
+
+Inserting object must be :
+	Homogeneouse
+	Comparable 
+-----------------------------------------------------------------------------------------
+Null Acceptance : 
+
+1) For Non-Empty Tree-set null can not be inserted. Bcoz any object can not be compare will NULL.
+2) For Empty Tree-set only first element can be add (NULL)
+
+Only 1.6-v at a first element as  Empty tree set but from 1.7-v null is not allowed even for empty tree-set.
+
+
+--------------------------------------------------------------------
+Note 1) If I depend on the default natural sorting algorithm.
+		Then compulsory inserting element must be Homogeneous an Comparable.
+
+String , Wrapper Class  -  Comparable
+StringBuffer - not implement Comparable
+
+
+--------------------------------------------------------------------
+--> Comparable(I)
+
+Java.lang. - package
+Only one method - compareTo()
+
+i.e.
+	public int compareTo(Object o);
+
+i.e.
+	obj1.compareTo(obj2);
+
+return -ve - Iff obj1 come before obj2
+return +ve - Iff obj1 come after obj2
+return  0  - Iff obj1 & obj2 are equal
+
+
+
+-------------------------------------------------------------------
+TreeSet t = new TreeSet();
+t.add("K");		//no comparison required.
+t.add("Z");
+t.add("A");
+
+Internally compareTo works if depending Default natural sorting order.
+
+i.e. 
+	obj1.compareTo(obj2);
+	obj1 = The Object which is to be inserted.
+	obj2 = The Object which is already inserted.
+
+
+-------------------------------------------------------------------
+Comparable for default natural sorting order
+Comparator for customized sorting order.
+
+
+--> Customized Sorting -- Comparator(I) java.util package
+Comparator Methods
+	- compare()
+	- equals()
+
+
+1)	public int compare(Object obj1,Object obj2);
+		return -ve - Iff obj1 before obj2
+		return +ve - Iff obj1 after obj2
+		return  0  - Iff obj1,obj2 are equal
+
+2)	public boolean equals(Object obj);
+		
+
+	--> When we implementing comparator(I) compulsory we should 		provide only for comapre method. Not require to provide 		implementation for ewuals method bcoz it already available 		to our class from Object class through inheritance.
+
+
+
+
+--------------------------------------------------------------
+--------------------------------------------------------------
+9th video
+
+TreeSet t = new TreeSet();
+t.add(10);
+t.add(0);
+t.add(15);
+t.add(5);
+t.add(20);
+t.add(20);
+
+if we want descending order.
+
+i.e.
+	class myComparator implements Comparator{
+		public int compare(obj1,obj2){
+			// implements method.
+		}
+	}
+
+then 
+TreeSet t = new TreeSet(new myComparator);
+
+	-	If we are not passing comparator object then internally JVM 	called compareTo method which is meant for Default Natural 		Sorting Order.
+
+
+-------------------------------------------------------------
+10th Video
+
+	- Reverse of alphabetical order.
+	- If we are depending on default sorting order.
+		then object must be Homogenous and comparable.
+
+	- If we are depending on customized order then object may or may not be homogenous or comparable.
+
+
+
+

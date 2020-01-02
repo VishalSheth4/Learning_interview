@@ -1,0 +1,229 @@
+1st Video
+-----------------------------------------------------------
+--> Language Fundamental Outline
+
+Identifier
+Reserved words
+Data types
+Literals
+Arrays
+Type of variables
+var-arg methods
+main method
+Command line arguments
+JAVA CODING standard.
+
+----------------------------------------------------------
+
+1) Identifiers : A name in java program is called Identifier. Identification purpose it can be method name,variable name,lalel name,class name.
+
+class Test{
+	public static void main(Stirng[] args){
+	int x = 10;
+	}
+}
+
+Ans)  5 Identifier - Test, main, string, args, x.
+---------------------------------------------------------
+Rules for java identifiers:
+a to z
+A to Z
+0 to 9
+$
+_
+
+
+1)	Above char are allowed for identifiers.
+2)	Identifer should not start with digit. (123Total)
+3)	Case-Sensitive are there.
+4)	No length limit
+5)	We cannot use reserved word as identifier.
+6)	All predefined classname and interfaces name we can use as identifiers.
+
+-------------------------------------------------------------------
+53 - Reserved Words: to represent meaning and functionality.
+ 
+50 Keywords - functionality
+	48 user keywords
+	2 unused keywords.
+
+3 Reserved Literals - true, false, null
+
+--> Keywords for datatype(8).
+
+	byte
+	short
+	int
+	long
+	float
+	double
+	boolean
+	char
+
+--> keywords for flow-contrl(11)
+	if
+	else
+	switch
+	default
+	while
+	do
+	for
+	break
+	continue
+	return
+
+
+--> Access modifier (11)
+	public
+	private
+	protected
+	static
+	final
+	abstract
+	synchronized
+	native
+	strictfp
+	transient
+	volatile
+
+--> Keywords for exception handling. (6)
+	try
+	catch
+	finally
+	throw
+	throws
+	assert()
+
+--> Class (6)
+	class
+	interface
+	extends
+	implements
+	package
+	import
+
+--> Object related keyword(4)
+	new
+	instanceof
+	super
+	this
+
+--> void return type keyowrd
+	void
+
+--> unused keyowrds(2) banned in java.
+	goto
+	const 
+
+--> enum Keyowrd
+	enum(1.5 version) - to define group of named constant.
+
+----------------------------------------------------------
+--> Following are new keyword in java.
+
+strictfp : 1.2v
+assert : 1.4v
+enum : 1.5v
+
+	strictfp butnot StrictFp
+	instance butnot instanceOf
+	synchronized butnot Synchronized
+	extends
+	implements
+	import
+	const
+
+
+
+----------------------------------------------
+2nd Video
+----------------------------------------------
+
+--> Data-Types
+- Java is strongly typed programming language.
+
+--> Java is not considered as pure object oriented programming language severla OOPs feature satify with java. --> Not object oriented language - operator overlaoding, multiple inheritance not supported. 
+--> We are depending on primitve datatype which are non-object.
+
+--> Primitive data-type.
+
+Numeric data-type
+	Intergral data-type
+		byte
+		short
+		int
+		long
+	Floating data type
+		float
+		double
+non-numeric data-type
+		char
+		boolean
+
+except boolean and char ,remaining datatype are signed data-type.
+
+
+---------------------------------------------------
+---------------------------------------------------
+byte : 
+size : 1byte , 8 bits
+1st bit contains for signed bit.
+other all 7 bit for number.
+MAX_VALUE : +127 is declared in form of memory
+MIN_VALUE : -128 is declared in 2's form .
+
+byte b = 128  //(Possible Loss of Precision)
+byte b = true // Imcompatible type , String.
+
+--> If data need to be handle in string format in File or Network then byteStream is best way.
+
+---------------------------------------------------
+---------------------------------------------------
+short
+size : 2byte , 16 bits
+range : -32768 to + 32767
+
+Functionality : best suitable in 8085 MI (16 bit processor.) 
+
+----------------------------------------------------
+----------------------------------------------------
+int :
+size : 4byte , 32 bits
+range -2^31 to 2^31-1.
+
+-----------------------------------------------------
+Long : light speed in 1000 dats distance travelled.
+size 8 bytes, 64 bits
+
+
+
+
+-----------------------------------------------------
+float : small floating point.(4-5 deciaml ,Less Accuracy )
+size : 4 bytes
+
+double : large floating point.(14-15 deciaml ,More Accuracy )
+size : 8 bytes
+
+-----------------------------------------------------
+boolean
+
+size of boolean not applicalbe - dependent on applications
+range [true/false]
+
+-----------------------------------------------------
+char
+
+size : 2 byte - JAVA is unicode based - 
+
+Old language is ASCII code based.
+
+
+
+
+
+
+
+
+
+

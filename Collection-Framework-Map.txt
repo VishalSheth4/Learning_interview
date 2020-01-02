@@ -1,0 +1,242 @@
+Map(I)
+- If we want to represent group of objects as key-value pair. 
+- No where related to collection.
+
+
+Methods: 
+
+1) public Object put(Object Key, Object Value);  
+	// it will add key and value.
+	// If key is present it will override the value.
+
+2) public object putAll(Map m);
+3) get(object Key);
+4) remove(Object Key);
+5) containsKey(Object Key);
+6) containsValue(Object Value);
+7) isEmpty();
+8) size();
+9) void clear();
+
+
+collection views:-
+
+1) Set KeySet();
+2) Collection values();
+3) //entry Object - Set entrySet();
+
+--------------------------------------
+Entry(I)
+
+entry - (key,value)
+
+3 methods:
+interface Map{
+	interface Entry{
+		1) Object getKey();
+		2) Object getValue();
+		3) Object setValue(Object value);
+	}
+}
+Only on Entry object.
+
+
+--------------------------------------------------------
+HashMap :
+
+Underlined datastructure  - HashTable
+Based on Hashcode of key
+duplicate keys are not allowed. 
+Duplicate values are allowed.
+Serializable and cloneable are allowed
+Random access are not allowed.
+
+Frequent operation : search
+
+
+-----------------------------------------------------
+HashMap constructor:
+
+HashMap m = new HashMap
+	Default initial capacity  - 16
+	fill ratio - 0.75
+
+HashMap m = new HashMap(int initialCapacity);
+
+HashMap m = new HashMap(int initialCapacity, int fill_ratio)
+
+HashMap m = new HashMap(Map m);
+
+-----------------------------------------------------
+
+i.e. 
+
+Set s1 = m.entrySet();
+Iterator itr = s1.iterator();
+while(itr.hasNext()){
+	MapEntry m = (MapEntry) itr.next();
+
+	System.out.println(m.getKey());
+	System.out.println(m.getValue());
+
+	if (m.getKey() == "???"){
+		m.setValue("?????");
+	}
+}
+
+-------------------------------------------------------
+Difference between hashMap and Hashtable.
+
+-------------------------------------------------------
+--> LinkedHashMap extends HashMap
+
+Difference Between HashMap and LinkedHashMap
+-------------------------------------------------------
+			       |	HashMap 			   | 		LinkedhashMap
+
+1) |data-strucutre |    hashtable       	   | LinkedList + Hash Table
+2) |Order preserved|    Not preserved   	   | Preserved
+3) |Version 	   |	1.2V				   | 1.4v
+
+
+Linked HashMap Common used for Cache
+
+---------------------------------------------------------
+--> IdentityHashMap
+
+- In the case of HashMap JVM used equals() method to find duplicate 	key in map. 
+
+- In the case of Identity HashMap JVM used ==() method to find duplicate key in map. 
+
+
+---------------------------------------------------------
+--> WeakHashMap
+
+Garbage Collector called and destroy object.
+
+
+----------------------------------------------------------
+
+SortedMap(I) extends Map(I)
+
+- Group of key-value pair according to some sorting order of Keys.
+- Sorting is based on Key. Not based on Value.
+
+Methods :
+
+firstKey()
+lastKey()
+headMap(107);  lesser than equal to
+tailMap(107);  greater than equal to
+subMap(103,125);
+public Comparator comparator(); 
+
+
+----------------------------------------------------------
+TreeMap:
+
+Underlined data-structure --> Red-Black Tree.
+Insertion order is not preserved.
+Sorting are bsed on key
+Duplicate key are not allowed. duplicate value are allowed 
+
+Depending on natural default sorting order then must be homogenous and comparable.
+
+
+1) In empty treeMap it can possible to enter Null value.
+
+2) In fill TreeMap it cannot possible to enter Null value. (It gives Null Pointer Exception). this is till 1.6 only .After 1.7 this does not allowed.
+
+----------------------------------------------------------
+
+Constructors : 
+
+1) TreeMap t = new TreeMap();
+		INSERTED INTO DEFAULT NATURAL SORTING ORDER.
+
+2) 	TreeMap t = new TreeMap(Comparator c);
+
+3) TreeMap t = new TreeMap(Map  m);
+
+4) TreeMap t = new TreeMap (SortedMap m);
+
+----------------------------------------------------------
+14th Video :
+----------------------------------------------------------
+
+HashTable(C) : Legacy class 
+
+	Underlined data-structure - HashTable.
+	Insertion order not preserved. 
+	Based on Hashcode of key.
+	Duplicate key are not allowed.
+	Heterogenous of both key and value.
+	Null is not possible.
+	Hash table implements Serializable and cloneable
+	Random access is not implemented.
+	Frequent operation : Search.
+
+
+Constructor : 
+
+1) 	Hashtable t = new Hashtable();
+
+2) 	Hashtable t = new Hashtable(int InitialCapacity);
+
+3) 	Hashtable t = new Hashtable(Int InitialCapacity, Float fillRatio);
+	Fill ratio = o.75
+	initialCapacity = 11
+
+4) 	Hashtable t = new Hashtable(Map m);
+
+-----------------------------------------------------------
+
+Q) How object is retrieve from the table ?
+A) From Top to Bottom, From Right to Left
+
+
+-----------------------------------------------------------
+Properties  -  
+I our program anything which changes frequently i.e username,email_id, number etc. or not recommended to hard-code in java-program bcoz if there is any changing to reflect that change recompilation, re-build, and re-deploy application are required even some-times server restart also required which create a big loss. 
+
+WE can overcome this problem by using properties file. Such type of variable string we have to configure in a properties file. from the properties file into the java program and we can use those properties.
+
+Advantage is : If there is a change in properities file. to reflect the change only need to deploy.
+
+
+In properties both key and value are string type only.
+
+Constructor: 
+
+Properties p = new Properties();
+
+
+Method:
+
+
+1) String getProperty();
+2) String SetProperty(String name,String value);
+3) Enumeration PropertiesNames();
+
+Note : 
+
+4) load()   // properties file to object.
+5) store()  // object to properties file.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,68 @@
+-	Collection 
+	-	Queue(I) extends colleciton(I)
+
+Group of individual object prior to processing.
+Application
+	Prior to Processing
+	Java Message Service
+
+
+In 1.5 Version enhancemnet.
+Queue Extends Collection,
+LinkedList implements Queue(I),List(I). 
+
+
+
+
+1) Priority Queue
+2) Blocking Queue
+		PriorityBlocking Queue
+		LinkedBlocking Queue
+
+Method in Queue(I).
+
+1) offer(Object o);   service provide the offer
+2) poll(Object o);  	remove and return
+if queue is empty - then gives null
+
+3) remove(Object o);    
+if queue is empty - then gives runtime Exception
+
+4) peak() 	return head element of the queue.
+if queue is empty - then gives null
+
+5) element() 	
+if queue is empty - then gives run time exception. 
+
+
+-----------------------------------------------------------
+Priority Queue:
+	Prior to processing according to some priority.
+	Duplicates are not allowed.
+	Heterogenous are not allowed
+	Homogenous and comparable are allowed.
+	Priority : Default Natural Sorting Order
+	Null insertion is not possible.
+
+
+
+Constructor:
+
+PriorityQueue p = new PriorityQueue();
+Default Capacity = 11, Default Natural Sorting Order
+
+PriorityQueue p = new PriorityQueue(int InitialCapacity);
+
+PriorityQueue p = new PriorityQueue(int InitialCapacity, Comparator c);
+
+
+PriorityQueue p = new PriorityQueue(SortedSet s);
+
+PriorityQueue p = new PriorityQueue(Collection c);
+
+
+
+
+
+
+

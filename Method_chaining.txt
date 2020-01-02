@@ -1,0 +1,2 @@
+StirngBuilder sb = new StringBuilder();
+sb.append("Durga").IgnoreCase().Lowercase().reverse();

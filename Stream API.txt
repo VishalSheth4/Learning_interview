@@ -1,0 +1,27 @@
+Stream API 
+
+Class : java.util.stream;
+
+Link : https://www.journaldev.com/2774/java-8-stream
+
+Collection is an in-memoery data-structure to hold values.
+Java Stream is a data structure that is computed on-demand.
+
+In formal way we have using external iteration way to iterate any collection.
+
+While with stream internal iteration provide 
+Sequential and parallel execution,
+filtering
+mapping
+
+Java Stream Api mostly work with "Functional interface" and "Lambda expression".
+
+1) Java stream is consumable (Nor we can store nor we can make reference).
+
+2) we can use primitive data types such as int, long in the collections using auto-boxing and these operations could take a lot of time, there are specific classes for primitive types – "IntStream, LongStream and DoubleStream ".
+
+-------------------------------------------------------------------
+Java functional Interface : 
+
+Java 8 functional interface
+Consumer, Supplier, Function and Predicate

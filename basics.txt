@@ -29,6 +29,11 @@ It includes JRE (Java runtime environment), an interpreter/loader,a compiler, an
 JRE: Java runtime environment/ JAVA RTE.
 It provides the minimum requirement for executing a java application. It consists of JVM,core classes and supporitng files.
 
+JVM: Java Virtual Machine converts the bytecode to machine specific code. 
+It is "platform dependent" and provide core java function like Garbage Collection, Security Memory Management.
+It provide an interface that does not depend on machine hardware and other Operating System.
+Write Once and run anywhere.
+
 
 Import indicate to call the classes and files,not to use them, 
 But extends indicate to use the parent class in the child class.

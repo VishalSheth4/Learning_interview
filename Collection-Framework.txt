@@ -1,0 +1,514 @@
+1st Generation 
+---------------------------------
+int x = 2;
+int z = 3;
+
+Limitation if 10000 variable are declared.
+
+
+2nd Generation
+---------------------------------
+Array --> Fixed Size, Indexed, Homogenouse collection of framework.
+
+Student[] s = new Student[1000];
+s= new Student() - Correct
+s = new Customer() - Incorrect --> Incompatible type.
+
+IF we want to add different object make object array.
+
+--> i.e.
+Object[] o = new Object[1000];
+
+o = new Student() - Correct
+o = new Customer() - correct 
+
+For Array - Ready made support is not available.
+
+---------------------------------
+3rd Generation 
+
+Collection are dynamically change it size.
+Support to store both homogenous and heterogenous object
+Support underlined data-structure.
+
+-------------------------------------------------------------------
+		Array               |              Collection       
+-------------------------------------------------------------------
+ 		Fixed               |         Growable
+ 		Homogeneous         |    Homogeneous and heterogeneous
+ 	Primitive and object    |    Only Object type
+ 	For Perofrmance         |   For Memory
+
+
+--------------------------------------------------------------------
+ 
+ Collection - Group of object.
+ Collection Framework - Classes and Interface used for functionality.
+
+ -------------------------------------------------------------------
+
+ 9 Key Interfaces of Colelction Framework
+
+
+1) Collection
+2) List
+3) Set
+4) Queue
+5) Map
+6) SortedSet
+7) SortedMap
+8) navigableSet
+9) NavigableMap
+
+------------------------
+(Group of object as a single entity)
+
+Collection(I) (1.2 V)- Root Interface of Collection Framework
+			  - Most common methods which are applicable collection object.
+			  - 
+			  - For Collection Interface No such concrete class implements directly.
+
+Collection v/s Collections
+
+Collection(I ) - Interface , which can be used to insert group of individual object.
+Collections(C) - Class, several utility method for Collection(I) object. 
+			- i.e. Collections.sort(l);
+			java.util. package.
+
+
+------------------------
+List (I) Extends Collection(I) - More Specific.
+Duplicate are allowed
+Insertion Ordered are must be preserved.
+
+	LIST(I)  (1.2-v)
+		- ArrayList(C) - (1.2-v)
+		- LinkedList(C) - (1.2-v)
+		- Vector(C) --> Stack (C) - (1.0-v) - Legacy class. (Re-engineered to implement List (interface).).
+
+------------------------
+Set(I) Extends Collection(I) 
+Duplicate not allowed.
+Insertion Ordered not preserved.
+
+	SET(I) (1.2-v)
+		- HashSet(C) (1.2-v) --> LinkedHashSet(C) (1.4-v)
+
+-----------------------
+SortedSet(I) (1.2-v) Extends Set(I)
+	Duplicate are not allowed.
+	Insertion ordered are preserved.
+
+
+-----------------------
+NavigableSet(I) (1.6-v) Extends SortedSet(I)
+		- It contains several method for navigation purposes.
+		- TreeSet(C) (1.2-v) implements NavigableSet(I)
+
+
+
+----------------------
+Queue(I) (1.5-v) Extends Collection(I)
+
+Note - (Prior To Processing)
+FIFO kind of ordered to preserved.
+Note : We can implement our own priority order. (Override method.)
+
+	- PriorityQueue(c)
+
+
+	- BlockingQueue(c)
+		-PriorityBlockingQueue(C)
+		-LinkedBlocingQueue(C)
+
+
+	- SynchronizeQueue(c)
+
+All the above interface (collection,set,list,sortedSet,NavigableSet and Queue) meant for represeting a group of indivudla objects. 
+---------------------------------------------	
+
+Map(I) - Group of object as key-value pair
+Duplicate key are not allowed. 
+Both key and value are objects only.
+
+
+	HashMap(C) --> LinkedHashMap(c)
+
+	WeakHashMap(c)  
+
+	IdentityHashMap(C)
+
+
+	----------------------------------
+
+	Hashtable(C) Extends Dictionary(Abstract Class)
+
+	Properties Extends Hashtable(c)
+
+--------------------------------------------
+SortedMap(I) Extends Map(I)
+	A group of key-value pair in some sorting order of keys.
+	Sorting not be done based on VALUE.
+
+--------------------------------------------
+NavigableMap Extends SortedMap(I)
+	It defines several method for navigation purposes.
+
+	TreeMap(C) Implements NavigableMap(I)
+
+
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+SortedMap v/s SortedSet 
+
+For Sorting--
+
+Comparable(I)  - default sorting
+Comparator(I)  -customize sorting
+
+
+----------------------------------------------------------
+One by one object fetch
+
+Cursor()
+
+	Enumeration(I) - Legacy Character (1.0v)
+	Iterator(I)
+	ListIterator(I)
+
+----------------------------------------------------------
+UtilityClasses : 
+
+	- Collections
+	- Arrays
+
+----------------------------------------------------------
+ Legacy Character (1.0v)
+ Enumeration(I)
+ Vector(C)
+ stack(C)
+ Dictonary(AC)
+ Hashtable(C)
+ Properties(C)
+
+
+-----------------------------------------------------------------
+Interface in depth
+-----------------------------------------------------------------
+Methods
+Collection(I)
+
+	-	add(Object o)
+	- 	addAll(Collection o)
+	-	remove(Object o)
+	-	removeAll(Collection o)
+	-	clear()
+	-	retainAll(Collection o) - (Intesection)
+	-	contains(Object o)
+	- 	containsAll(Collection o)
+	- 	isEmpty(Object o)
+	-	size()
+	-	public Object toArray(Object o)
+	- 	Iterator iterator()
+
+-----------------------------------------------------------------
+List(I) - Insertion order can be managed with respect to (index).
+		- Differnetiate duplicate by using (index).
+	Indexed Strucutre.
+
+
+As list works on indexed. All CRUD operation can be done with index.
+	-	l.add(3,A); 
+	-	l.addAll(3, Collection o)
+	Note : It will not override it will shift to next empty block.
+	-   remove(int i);
+	-	remove(Object o);
+	- 	get(int index);
+	- 	set(int i, Object o);
+	-	indexOf (Object o); - First Occurance
+	-	lastIndexOf(Object o); - Last Occurance
+
+	Fetch one by one :-
+
+	- ListIterator listIterator()
+
+ArrayList(c), LinkedList(c), Vector(c), stack(c)
+------------------------------------------------------------------
+
+Depth in ArrayList(c)
+	- Underlined Datastrucutre - Resizeable array(growable array)
+	- It can hold heterogenous object.
+	- Except this 2 area(TreeSet, TreeMap)-(According to sorted order)
+	- null allowed i.e. l.add(null);
+
+-------------------------
+Constructor for arrayList();
+
+	- ArrayList l = new ArrayList(); 
+		Create an empty arrayList object with default intialCapacity = 10; 
+
+		Formula : New Capacity = [currentCapacity * 3/2] + 1; 
+	
+	- ArrayList l = new ArrayList(int InitialCapacity); 
+
+	- ArrayList l = new ArrayList(Collection c);
+		Inter-conversion of collection.
+
+-----------------------------------------------------------------
+4th Video----
+-----------------------------------------------------------------
+Container - Collection - To hold objects.
+
+1) Every collection(I) implements Serializable(I) Object.
+2) Every collection(I) implements cloneable(I).
+
+Note : ArrayList(c) and Vector(c)
+	 :- randomAccess(I) present in java.util package.
+		These both class implements RandomAccess(I).
+		Retrival operation in ArrayList and Vector is best among all collection.
+
+	ArrayList v/s Vector:
+
+		method non-synchronized	|  Synchronized.
+		not Thread-Safe			|	Thread-Safe.
+		performance is high		|	Performance is low.
+		v-1.2					|	1.0 v legacy class
+
+
+ArrayList: 
+
+	add operation are costly (Bcoz of shifting).
+	remove operation are costly (Bcoz of shifting).
+
+----------------------------------------------------------
+
+Q) How to get synchronized version of arrayList object.
+A) By default, non-synchronized.
+
+i.e. 
+
+ArrayList l = new ArrayList();		// non synchronized.
+
+List l = Collections.synchronizedList(l) // synchronized 
+
+----------------------------------------------------------
+Collections.synchronizedSet();
+Collections.synchronizedMap();
+
+----------------------------------------------------------
+LinkedList : Frequent operation of insertion and deletion.
+
+May Not store at consecutive memory location.
+Underlined data-structure - double LinkedList.
+Insertion order is preserved.
+Duplicate objecet are allowed.
+Heterogenous object allowed.
+Null insertion is allowed.
+LinkedList implements - Serializable, Cloneable but not randomacces.
+
+Worst Choice : retrival operation.
+
+Constructor : 
+no capacity needed.
+	 
+	 - LinkedList l = new LinkedList();
+
+	 - LinkedList l = new LinkedList(colection c);
+
+
+------------------------------------------------------
+
+Array 
+	-Stack
+	-Queue
+
+it can also be implement by LinkedList also.
+
+LinkedList 
+	-Stack
+	-Queue
+
+Method in LinkedList(c)
+
+	addFirst(o);
+	addLast(o);
+	getLast(o);
+	getFirst(o);
+	removeFirst(o);
+	removeLast(o);
+
+
+------------------------------------------------
+5th Video
+------------------------------------------------
+- ArrayList and LinkedList Difference Between
+
+- Vector 
+	Underlined Structured - growable array
+	Duplicate allowed
+	Ordered preserved
+	Null allowed
+	Serializable
+	Cloneable
+	RandomAccess(I)
+	Thread-Safe - Synchronized.
+
+	Constructor : 
+	1)  Vector l = new Vector(); 
+		Default Initial Capacity = 10.
+		[New_Capacity = Current_Capacity * 2]
+	
+	2) 	Vector l = new Vector(int Initial Capacity);
+	3) 	Vector l = new Vector(int Initial Capacity, int Incremental_Capacity);
+
+	4) 	Vector l = new Vector(Collection c);
+
+------------------------------------------
+-Vector in dpeth - Method - As it is legacy class.
+
+addElement(Object o);
+removeElement(Object o);
+removeElementAt(int index);
+removeAllElement();
+capacity() 
+
+----------------------------------------------
+Stack extends Vector
+Specialized designed class FOR LIFO.
+
+Stack s = new Stack();
+
+methods :-
+
+push (Object o);
+pop(Object o); 
+peek(Object o);
+empty(Object o);
+int search(Object o) - It returns offset.
+
+-----------------------------------------------------------------
+-----------------------------------------------------------------
+
+The 3 cursor of java ---------
+
+Fetch object one by one from collection.
+Enumeration
+Iterator
+ListIterator
+
+1) Enumeration :- it can be create with v.elements().
+				Only useful in leagacy class.
+
+	Vector v = new Vector();
+	Enumeration e = v.elements();
+	while(e.hasMoreElements){
+		System.out.println(e);
+	}
+
+
+Method in Enumeration:
+
+public boolean hasMoreElements();
+public object nextElement();
+
+
+-------------------------------------------------------------------
+Limitation of Enumeration :
+
+1) 1.0 v
+2) Applicable only for legacy classes.
+3) It is not a universal cursor.
+4) Enumeration does not contain remove() capability.
+
+-------------------------------------------------------------------
+Iterator(I)  - (1.2v)
+
+1) Universal Cursor
+2) Read,Remove operation can perform.
+
+public Iterator iterator()
+
+i.e.
+c -- any collection object
+Iterator itr = c.iteerator();
+
+Methods :-
+public boolean hasNext();
+public Object next();
+* public void remove();
+
+
+i.e.
+ArrayList l = new ArrayList();
+Iterator itr = l.iterator();
+
+------------------------------------
+Limitation of Iterator (Enumeration)  -Single Directional Cursor.
+
+1) Only move towards forward direction.
+2) Can not ask previous elements.(Not having Bidirectional cursor).
+3) can not add new object.
+4) Can not replace object.
+
+
+-----------------------------------------------------------------
+ListIterator(I) Extends Iterator(I)- Bidirectional Cursor
+- Most Powerful cursor is ListIterator - only applicable only for list object.
+
+Public ListIterator listIterator();
+
+
+l = Any List Object.
+
+ListIterator itr = l.listIterator();
+
+9 Method : 
+public void remove();
+
+public void add(Object o);
+public void remove(Object o);
+
+
+Forward Moving
+	- 	public boolean hasNext();
+	-	public object next();
+	- 	public int nextIndex();
+
+
+Backward Moving
+	-	public boolean hasPrevious();
+	-	public object previous();
+	-	public int previousIndex();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
