@@ -1,0 +1,76 @@
+Access Modifier : An access modifier restricts the access of a Class, Constructor, Data member and Method in another class.
+
+The scope of access modifiers in tabular form :
+------------+-------+---------+--------------+--------------+--------
+            | Class | Package | Subclass     | Subclass     |Outside|
+            |       |         |(same package)|(diff package)|Class  |
+————————————+———————+—————————+——————————----+—————————----—+————————
+public      | Yes   |  Yes    |    Yes       |    Yes       |   Yes |    
+————————————+———————+—————————+—————————----—+—————————----—+————————
+protected   | Yes   |  Yes    |    Yes       |    Yes       |   No  |    
+————————————+———————+—————————+————————----——+————————----——+————————
+default     | Yes   |  Yes    |    Yes       |    No        |   No  |
+————————————+———————+—————————+————————----——+————————----——+————————
+private     | Yes   |  No     |    No        |    No        |   No  |
+------------+-------+---------+--------------+--------------+--------
+
+-----------------------------------------------------------------------------------------------------------------------------------
+	->Sub-class and Sub-class concept:
+
+What Member Variables Does a Subclass Inherit?
+Rule: A subclass inherits all of the member variables within its superclass that are accessible to that subclass (unless the member variable is hidden by the subclass).
+
+The following list itemizes the member variables that are inherited by a subclass:
+- Subclasses inherit those member variables declared as public or protected.
+- Subclasses inherit those member variables declared with no access specifier as long as the subclass is in the same package as the superclass.
+- Subclasses don't inherit a superclass's member variable if the subclass declares a member variable using the same name. The subclass's member   variable is said to hide the member variable in the superclass.
+- Subclasses don't inherit the superclass's private member variables
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+What Methods Does a Subclass Inherit?
+The rule that specifies which methods get inherited by a subclass is similar to that for member variables.
+Rule: A subclass inherits all of the methods within its superclass that are accessible to that subclass (unless the method is overriden by the subclass).
+The following list itemizes the methods that are inherited by a subclass:
+
+- Subclasses inherit those methods declared as public or protected.
+- Subclasses inherit those superclass methods declared with no access specifier as long as the subclass is in the same package as the   superclass.
+- Subclasses don't inherit a superclass's method if the subclass declares a method using the same name. The method in the subclass is said to   override the one in the superclass.
+- Subclasses don't inherit the superclass's private methods.
+A subclass can either completely override the implementation for an inherited method, or the subclass can enhance the method by adding functionality to it.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Public : It can accessed from anywhere in the project.
+	It can be modified anywhere inside project.
+	-> It can access outside package.
+
+
+Default : The scope of this modifier is limited to the package only. 	
+	-> any member of a class cannot access outside package.
+
+private : "only visible within the enclosing class".
+
+protected : "only visible within the enclosing class and any subclasses, and also anywhere in the enclosing class's package"
+
+
+NOTE : There are only two use cases for class visibility at the top level (a) Visible everywhere (b) Visible only within the package. So public and default are used for top level class.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+Q) Can a top level class be private or protected
+   No. A top-level class as private would be completely useless because nothing would have access to it. 
+	Compiler will throw error : "modifier private is not allowed here".
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Q) Can we declare class as protected in java
+	Protected class member is just like package-private , except that it also can be accessed from subclasses. 
+	Defining a field protected makes that field accessible inside the package as well as outside the package through inheritance only (Only 	inside the subclass). 
+	If all the classes are allowed to subclass then it will be similar to public access specifier . Since there is no way to restrict this 		class being subclassed by only few classes, there is no use of protected access specifiers for top level classes. Hence it is not 		allowed.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+ Private Modifier: 
+ Access - field, methods, any inner class.
+ Top level class can not be private.
+ With the use of reflection (setAccessible(true)) we change it access.
+
+ 
+

@@ -1,0 +1,206 @@
+Q) Collection and collections ?
+
+Collection : Parent interface of all other child interface and Java classes.
+			 Consist of sub-interface such as list,set and queue.
+			 To store a object into a single collection objects.
+
+Collections : Static utility class of java.
+			  It consists of static method such as sort,reverse etc.
+			  To perform an operation on the object of collection.
+
+Q) Vector vs ArrayList in Java ? 
+Q)why ArrayList can not be shared between multiple threads.?
+	
+	Synchronization :
+   	Vector is synchronized and ArrayList is not, what it means is that all the method which structurally modifies Vector e.g. add () or remove () are synchronized which makes it thread-safe and allows it to be used safely in a multi-threaded and concurrent environment. On the other hand ArrayList methods are not synchronized thus not suitable for use in multi-threaded environment. 
+
+	Speed and Performance :
+	 ArrayList is way faster than Vector. 
+	 Since Vector is synchronized and thread-safe it pays price of synchronization which makes it little slow. 
+	 On the other hand ArrayList is not synchronized and fast which makes it obvious choice in a single-threaded access environment. 
+	 You can also use ArrayList in a multi-threaded environment if multiple threads are only reading values from ArrayList or you can create read only ArrayList as well.
+
+	Capacity :
+	 Whenever Vector crossed the threshold specified it increases itself by value specified in capacityIncrement field 
+	 while you can increase size of ArrayList by calling ensureCapacity () method. 
+
+    Enumeration and Iterator :
+	 Vector can return enumeration of items it hold by calling elements () method which is not fail-fast as opposed to Iterator and ListIterator returned by ArrayList.
+
+	My conclusion is use ArrayList wherever possible and avoids use of Vector until you have no choice. 
+	Think for "CopyOnWriteArrayList" over Vector, if you have multiple readers and few writers because it can provide thread-safety without impacting performance too much.
+
+Read more: https://javarevisited.blogspot.com/2011/09/difference-vector-vs-arraylist-in-java.html#ixzz62L4EAtVS
+
+
+
+
+--------------------------------------------------------------------------------------------
+HashMap and HashTable :
+
+	Synchronized :
+		HashMap not support synchonized and permits null as key and value.
+		Hash Table support synchronized and not permits null.
+
+
+--------------------------------------------------------------------------------------------
+Enumeration and Iterator : 
+
+	1)	Iterator and Enumeration allows you to traverse over elements of Collections in Java
+	2)  Iterator also allows you to remove elements from collection during traversal but Enumeration doesn't allow that, it doesn't got the remove() method
+	3)  Enumeration is also a legacy class and not all Collection supports it e.g. Vector supports Enumeration 
+		but ArrayList doesn't. On the other hand Iterator is the standard class for iteration and traversal.
+	4)  Also Iterator is more secure and safe as compared to Enumeration because it  does not allow other thread to modify the compared ollection object while some thread is iterating over it and throws " ConcurrentModificationException ".
+
+	Enumeration
+		hasMoreElement()
+		nextElement()
+		N/A
+
+
+	Iterator
+		hasNext()
+		next()
+		remove()
+
+		So Enumeration is used when ever we want to make Collection objects as Read-only.
+----------------------------------------------------------------------------------------------------------------------------
+
+HashMap :
+1) based on hashing principle.
+2) store and retrieve in O(1) constant time.
+3) put (K,V) to add element or get(K,V) to retrive element.
+4) Put() -  hashcode() method of the key object is called so that hash function of the map can find a bucket location to store 				value object, which is actually an index of the internal array, known as the table.
+
+
+Map(I)
+Hashmap implements map.
+hashcode
+index
+hashtable - array(index)
+linkedList : where it store key,value,next_node
+
+Hashmap allows null key where its index always store at 0 position.
+
+
+Get() - First it get index, then compare hash value, then equals(key value)
+
+-----------------------------------
+Map(I)
+contains keyset() : it fetches all key.
+contains entrySet(): it is nested interface - in this it contian object.key(), object.value(); 
+
+1) Two unequal objects may return the same hashcode.
+2) When two objects are equal by equals(), they must have the same hashcode.
+-----------------------------------------------
+HASHMAP
+-----------------------------------------------
+1) How does put() method of HashMap works in Java?
+2) What is the requirement for an object to be used as key or value in HashMap?
+	key and value both have to implement equals() and hashcode() method;
+3) What will happen if you try to store a key which is already present in HashMap?
+	It override.
+4) Can you store a null value inside HashMap in Java?
+	yes, One or many null value can be possible.
+5) Can you store a null value inside HashMap in Java?
+	yes, Only one null key is allowed.
+6) How does HashMap handle collisions in Java?
+	through chaining and balanced binary search tree.
+7) Can you store a duplicate key in HashMap? 
+	No, you cannot insert duplicate keys in HashMap, it doesn't allow duplicate keys.	
+8) Can you store the duplicate value in Java HashMap? 
+	Yes, you can put duplicate values in HashMap of Java. It allows duplicate values, that's why when you retrieve all values from the Hashmap by calling values() method it returns a Collection and not Set. Worth noting is that it doesn't return List because HashMap doesn't provide any ordering guarantee for key or value.	
+9) Is HashMap thread-safe in Java? (answer)
+	No, HashMap is not thread-safe in Java. You should not share a HashMap with multiple threads if one or more thread is modifying the HashMap	
+10) What are different ways to iterate over HashMap in Java? 
+	Here are some of the ways to iterate over HashMap in Java:
+	by using keySet and iterator
+	by using entrySet and iterator
+	by using entrySet and enhanced for loop
+	by using keySet and get() method		
+11) order mappings are stored in HashMap? 
+	Random order
+12) Can you sort HashMap in Java?
+	No, you cannot sort a HashMap because unlike List it is not an ordered collection. Albeit, you can sort contents of HashMap by keys, values or by entries by sorting and then storing the result into an ordered map like LinkedHashMap or a sorted map e.g. TreeMap.		
+13) What is the load factor in HashMap? 
+	A load factor is a number which controls the resizing of HashMap when a number of elements in the HashMap cross the load factor e.g. if the load factor is 0.75 and when becoming more than 75% full then resizing trigger which involves array copy
+14) How does resizing happens in HashMap? 
+	The resizing happens when the map becomes full or when the size of the map crosses the load factor. For example, if the load factor is 0.75 and then become more than 75% full then resizing trigger which involves array copy. First, the size of the bucket is doubled and then old entries are copied into a new bucket.		
+
+----------------------------------------------------------------------------------------------------------------------------
+MAP :  Interface
+	It represents a mapping between key and value.
+	It is not a subtype of Collection interface.
+	Not contain duplicate key. 
+	Each key contain atmost one value.
+	NULL:
+	HashMap and LinkedHashMap  allows null key and null value.
+	TreeMap does not allow null key and null value.
+	Specific Order: 
+	TreeMap and LinkedHashMap sustain order.
+	HashMap does not follow order.
+
+Examples: MAP USAGE : 
+	A map of zip code and city.
+	A map of manager and employee.
+
+METHODS IN MAP INTERFACE:
+
+1) Object put(Object key, Object value)
+2) void putAll (Map map)
+3) Object remove(Object key)
+4) Object get(Object Key)
+5) Boolean contiansKey(Object key)
+6) set keySet()
+7) Set entrySet()
+----------------------------------------------------------------------------------------------------------------------------
+HashMap:
+There are four fields in HashMap.
+
+-------------------
+|  Node <K,V>     |
+-------------------
+|  int hash       |
+|  K key          |
+|  V value        |
+|  Node<K,V> next |
+-------------------  
+
+equals() - It compare the keys.
+hashcode() - It returns the memory reference of the object in integer form The value return is used as bucket number.
+Hashcode of null key is 0.
+
+Bucket: Array of node is called buckets.
+		Each node has linkedlist type data-structure.
+
+hashMap 
+Step 1) From the object it fetch hashcode().
+Step 2) Index it calculate from hashcode.
+	Index = hashcode(key) & (n-1)
+
+Hash Collision happen than
+It will store node to its next existing node.	
+----------------------------------------------------------------------------------------------------------------------------
+IMPORTANT METHODS :
+
+[ equals(), hashcode(), compare() and compareTo() methods for a value class ]
+
+" == "  - It compare object reference , return true or false. (If object are created without new operator it will return true.)
+
+equals() - It will comapre the string content. return true or false.
+
+compare() - Java compares two class specific objects (x, y) given as parameters. It returns the value:
+			0: if (x==y)
+			-1: if (x < y)
+			1: if (x > y)
+
+compareTo() - 	It will check unicode index value for each character.
+			A .compareTo A: 0
+			A .compareTo a: -32
+			a .compareTo A: 32
+			A .compareTo A: 0
+
+HashCode() - Native method, return a int hash code value.
+		   - If two objects are equal according to equals() method, then their hash code must be same.
+		   - If two objects are unequal according to equals() method, then their hash code may be same or not.
+

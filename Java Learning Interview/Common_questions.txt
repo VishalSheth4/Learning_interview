@@ -1,0 +1,11 @@
+Q) What is the difference between equals() and == ?
+
+First, “==” is an operator whereas equals() is a method. We use == operator for reference comparison (or address comparison) and equals() method for content comparison. It means that == checks if both objects point to the same memory location while equals() compares values in the objects.
+
+Q)  Can we execute a program without main() method?
+
+Many java basic interview questions are really easy. Like this one. So short answer is: yes, we can. For example we can do it using static block.
+
+You can use static block to initialize the static data member. It is executed before the main method, at the time of class loading.
+
+What about total main method absence? If you try to run an ordinary class without the main method at all, you got the next error: Main method not found in class Test, please define the main method as: public static void main (String [] args) or a JavaFX application class must extend javafx.application.Application. The error itself says that if this is a JavaFX application and the class is inherited from javafx.application.Application, then it is possible. 

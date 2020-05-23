@@ -1,0 +1,112 @@
+Overloading - same name with different parameter.
+			- Resolved at compile time.
+
+			Rules : 
+			1) A number of argument to a method is part of method signature.
+			2) Type of argument to a method is also part of method signature
+			3) Order of argument also forms part of method signature provided they are of different type.
+			[ 4) The return type of method is not part of the method signature in Java.]
+
+JVM does not consider return type of method - Overloading.
+Constructor	Can be overloaded
+
+1) Can we declare one overloaded method as static and another one as non-static?
+	Yes. Overloaded methods can be either static (OR) non static.
+
+2) Can overloaded methods be synchronized?
+	Yes. Overloaded methods can be synchronized.
+
+3) Can we declare overloaded methods as final?
+	Yes, we can declare overloaded methods as final.	
+
+4) In the below class, is constructor overloaded or is method overloaded?
+public class A
+{
+    public A()
+    {
+        //-----> (1)
+    }
+ 
+    void A()
+    {
+        //-----> (2)
+    }
+}
+
+None of them. It is neither constructor overloaded nor method overloaded. First one is a constructor and second one is a method.	
+5) Can overloaded method be overrided?
+	Yes, we can override a method which is overloaded in super class.
+--------------------------------------------------------------------------------------------------------------
+Overriding - Same name but different code but it must be in sub class.
+		   - Run-time Polymorphism.
+		   - Private, Static and Final method cannot be overridden in Java
+
+
+1) Static method can not be overiding - bcoz it is run time compiling and static is static time binding.
+	This is called method hiding.
+
+2) Prevent method overriding - 
+	final - purpose fully final is made.
+	private - private method is not accessible in subclass
+	static - static methods can not be overridden in Java
+
+3) Can we change return type of method in subclass while overriding?
+	yes - upto certain extent.
+
+	parent_Class : return type Object;
+	child_class : return type clone,int.string;
+
+4) Call super class version of an overriding method in sub class?
+	Super.parent_method_name();
+
+5) Rules of method overriding in Java?
+
+	a) Overriding method cannot throw higher exception than overridden one, but that's only true for "checked exception".
+	b) Overriding method cannot restrict access of overridden method e.g. if original method is public then overriding method must 	be public, but it can expand access e.g. if original method is protected than overriding method can be protected or public.
+	c)	Arguments : must not change.
+	d)  Return type : must not change.
+	e)  Access Modifier : Must not be more restrictive.(Can be less restricitive).
+	f) Exceptions : Can reduce or eliminate but must throw checked exceptions.
+	g) Constructor : can not be overridden.
+	h) Static method : can not be overridden.
+	i) Final method : Can not be overridden.
+
+6) Can we override constructor in Java?
+	No, constructor can not be override.
+
+7) Can we override final method in Java?
+	No, purpose fully.
+
+8) Can we override a non-static method as static in Java?	
+	No
+
+9) Can we override a method which throws run-time exception without throws clause?
+	Yes, you can. There is no restriction on throwing RuntimeException from overriding method. So if your original method throws NullPointerException than its not necessary to throw NPE from overriding method as well.
+
+10) No, we cannot override non static method as static method in java.
+i.e. :
+
+	void A(int);
+	void A(long);
+	void A(dobule);
+	void A(Integer);
+
+	it will call (int).
+	if we remove (int,long) then if we call (double).
+Hierarchy : int -> long -> double -> Integer Wrapper class ->Number class.
+	---------------------------------------------------------------
+Questions :
+
+1) The method main cannot be declared static; 
+	Static methods can only be declared in a static or top level type. Why.
+
+
+2)  try or catch block 
+	if we write - return or system.exit() is still final block will exexute.
+
+3) Inheritance Problem : 
+	Diamond Problem.
+	Multiple inheritances does complicate the design and creates problem during casting, constructor chaining etc
+
+4) What are Covariant return type in java?
+Covariant return type means if subclass overrides any method, return type of this overriding method can be subclass of return type of base class method.
